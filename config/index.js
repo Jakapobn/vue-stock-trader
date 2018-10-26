@@ -8,8 +8,8 @@ module.exports = {
   dev: {
 
     // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/vue-stock-trader',
+    assetsSubDirectory: 'vue-stock-trader/static',
+    assetsPublicPath: '/',
     proxyTable: {},
 
     // Various Dev Server settings
