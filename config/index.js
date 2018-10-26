@@ -5,6 +5,7 @@
 const path = require('path')
 
 module.exports = {
+  baseUrl: '/vue-stock-trader',
   dev: {
 
     // Paths
@@ -43,7 +44,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/vue-stock-trader',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps

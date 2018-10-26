@@ -4,13 +4,14 @@ import Stocks from '@/components/stocks/Stocks.vue';
 import Vue from 'vue';
 import Router from 'vue-router';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
+  base: '/vue-stock-trader',
   mode: 'history',
   routes: [
     { path: '/', component: Home },
     { path: '/portfolio', component: Portfolio },
     { path: '/stocks', component: Stocks }
   ]
-})
+});
