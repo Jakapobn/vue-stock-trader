@@ -1,3 +1,5 @@
+demo : https://jakapobn.github.io/vue-stock-trader/
+
 # my-stock-trader
 
 > A Vue.js project
