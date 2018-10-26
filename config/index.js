@@ -5,7 +5,6 @@
 const path = require('path')
 
 module.exports = {
-  baseUrl: '/vue-stock-trader',
   dev: {
 
     // Paths
