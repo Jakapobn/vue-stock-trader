@@ -5,19 +5,26 @@
       <small>(Price: {{stock.price}})</small>
     </p>
     <p class="card-text">
-      <input type="number" class="form-control" placeholder="Quantity" :class="{danger: insufficientFunds}" v-model="quantity">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Quantity"
+        :class="{danger: insufficientFunds}"
+        v-model="quantity"
+      />
     </p>
     <div class="right">
-      <b-button @click="buyStock" :disabled="insufficientFunds || quantity <= 0">
-        {{insufficientFunds ? 'Insufficient Funds' : 'Buy'}}
-      </b-button>
+      <b-button
+        @click="buyStock"
+        :disabled="insufficientFunds || quantity <= 0"
+      >{{insufficientFunds ? 'Insufficient Funds' : 'Buy'}}</b-button>
     </div>
   </b-card>
 </template>
 
 <script>
 export default {
-  props: ['stock'],
+  props: ["stock"],
   data() {
     return {
       quantity: 0
@@ -25,10 +32,12 @@ export default {
   },
   computed: {
     funds() {
+      // why use Store in  dump component
       return this.$store.getters.funds;
     },
     insufficientFunds() {
-      return this.quantity * this.stock.price > this.funds;
+      const insufficient = this.quantity * this.stock.price > this.funds;
+      return insufficient;
     }
   },
   methods: {
@@ -37,9 +46,9 @@ export default {
         stockId: this.stock.id,
         stockName: this.stock.name,
         stockPrice: this.stock.price,
-        quantity: +this.quantity
+        quantity: Number(this.quantity)
       };
-      this.$store.dispatch('buyStock', order);
+      this.$store.dispatch("buyStock", order);
       this.quantity = 0;
     }
   }
